@@ -1,0 +1,45 @@
+div.row
+  div class="col-sm-6 col-sm-offset-3"
+    h1 THE PRICE
+    div class="col-xs-12 box"
+      h3 HOW MUCH WERE THESE WORTH?
+
+      div.row style="margin: 20px 0 0 0;"
+        h4 class="pull-left" THE WALL &nbsp; 
+
+        input type="number" name="quant[1]" class="rating form-control input-number pull-left" value="5" min="1" max="999999999"
+        p class="pull-left" &nbsp; MINS
+
+      div.row style="margin: 20px 0 0 0;"
+        h4 class="pull-left" THE DREAM &nbsp; 
+
+        input type="number" name="quant[1]" class="rating form-control input-number pull-left" value="5" min="1" max="999999999"
+        p class="pull-left" &nbsp; MINS
+
+      div.row style="margin: 20px 0 0 0;"
+        h4 class="pull-left" THE DROP &nbsp; 
+
+        input type="number" name="quant[1]" class="rating form-control input-number pull-left" value="5" min="1" max="999999999"
+        p class="pull-left" &nbsp; MINS
+
+      div.row style="margin: 20px 0 0 0;"
+        h4 class="pull-left" THE BIRD &nbsp; 
+
+        input type="number" name="quant[1]" class="rating form-control input-number pull-left" value="5" min="1" max="999999999"
+        p class="pull-left" &nbsp; MINS
+
+
+      br /
+      a href="/"
+        input type="submit" name="commit" value="SUBMIT"
+
+
+div.row
+  div class="col-sm-6 col-sm-offset-3"
+    -if current_user
+        p YOU HAVE EARNED <span class="var"> #{current_user.id}</span> MINUTES CONNECTED TO THE INTERNET
+    p
+      a href="/comment" CONNECT TO THE INTERNET >
+    p
+      a href="/" < CHOOSE ANOTHER PAYEMENT METHOD
+

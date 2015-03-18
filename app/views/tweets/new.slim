@@ -1,0 +1,23 @@
+div.row  
+  div class="col-sm-6 col-sm-offset-3"
+    h1 THE BIRD
+    div class="col-xs-12 box"
+      div class="media"
+        a class="pull-left" href="/"
+          img class="media-object" src="/images/egg.gif"
+          | @FREE_AS_IN_WIFI
+        div class="media-body"
+          h2 style="margin-top:25px;" ANOTHER PERSON IS CONNECTING TO THE FREE WIFI
+
+      div.buttonrow   
+          = form_for :tweet, url: tweets_path do |f|
+            = f.hidden_field :catch, value: true
+            = f.submit 'TWEET'
+div.row
+  div class="col-sm-6 col-sm-offset-3"
+    -if current_user
+        p YOU HAVE EARNED <span class="var"> #{current_user.id}</span> &nbsp; MINUTES CONNECTED TO THE INTERNET
+    p
+      a href="/comment" CONNECT TO THE INTERNET >
+    p
+      a href="/" < CHOOSE ANOTHER PAYEMENT METHOD

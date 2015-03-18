@@ -1,0 +1,22 @@
+div.row
+	div class="col-sm-6 col-sm-offset-3"
+	  h1 THE DROP
+	  div class="col-xs-12 box"
+	    h3 THE LAST PERSON <span class="var">DROPPED</span> MAKING A RUN OF <span class="var">0</span> CATCHES
+
+		div.buttonrow   
+		   = form_for :ball, url: balls_path do |f|
+		      = f.hidden_field :catch, value: true
+		      = f.submit 'CATCH'
+		div.buttonrow   
+		    = form_for :ball, url: balls_path do |f|
+		      = f.hidden_field :catch, value: false
+		      = f.submit 'DROP'
+div.row
+  div class="col-sm-6 col-sm-offset-3"
+    -if current_user
+        p YOU HAVE EARNED <span class="var"> #{current_user.id}</span> &nbsp; MINUTES CONNECTED TO THE INTERNET
+    p
+      a href="/comment" CONNECT TO THE INTERNET >
+    p
+      a href="/" < CHOOSE ANOTHER PAYEMENT METHOD

@@ -1,0 +1,7 @@
+div class="col-sm-6 col-sm-offset-3"
+  h1 the dreams
+  div class="col-xs-12 box"
+    div class="box inner"
+      - @dreams.each do |dream|
+        p #{dream.user_id}
+        p #{dream.text}

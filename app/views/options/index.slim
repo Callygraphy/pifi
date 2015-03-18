@@ -1,0 +1,61 @@
+- if !current_user
+  div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+    div class="modal-dialog"
+      div class="modal-content"
+        div class="modal-header"
+          h4 class="modal-title" id="myModalLabel" Terms and Conditions
+        div class="modal-body" 
+          h4 YOU WILL INTERACT WITH A NUMBER OF TASKS THAT WILL EARN YOU TIME CONNECTED TO THE INTERNET 
+          h4 THESE INTERACTIONS WILL GENERATE DATA.
+          h4 THESE INTERACTIONS ARE PUBLIC AND THE DATA WILL BE IN THE PUBLIC DOMAIN AND IS NOT COVERED BY DATA PROTECTION LEGISLATION
+          h4 THE DATA WILL APPEAR HERE AND IN OTHER PUBLIC CONTEXTS AND ARTWORKS.
+          h4 YOU ARE FREE TO CHOOSE HOW MUCH DATA YOU SHARE BUT BE AWARE YOU MAY BE PERSONALLY IDENTIFIABLE FROM THE DATA
+          h4 YOU NEED TO BE 18 OR OVER TO PARTICPATE IN THIS EXPERIMENT.
+          h4
+            a href="/info" MORE INFORMATION >
+          h4 IF YOU UNDERSTAND AND ACCEPT THESE CONDITIONS PRESS ACCEPT
+
+
+        div class="modal-footer"
+          div 
+            a href="/thanks"
+              button type="button" class="btn btn-default" No thanks
+
+          = form_for :user, url: users_path, remote: true do |f|
+            / button 
+            = f.submit 'ACCEPT', :class => 'btn btn-default'
+
+div.row
+  div class="col-sm-6 col-sm-offset-3"
+    h2 There is no such thing as
+    h1 FREE WIFI
+    p CHOOSE A PAYMENT METHOD
+
+
+
+    div class="boxed-text"
+      a href="/names/new"
+        div class="button"
+          h2 THE WALL
+    div class="boxed-text"
+      a href="/balls/new"
+        div class="button"
+          h2 THE DROP
+    div class="boxed-text"
+      a href="/dreams/new"
+        div class="button"
+          h2 THE DREAM
+    div class="boxed-text"
+      a href="/tweets/new"
+        div class="button"
+          h2 THE BIRD
+    div class="boxed-text-span"
+      a href="/ratings/new"
+        div class="button"
+          h2 THE PRICE
+div.row
+  div class="col-sm-6 col-sm-offset-3"
+    -if current_user
+        p YOU HAVE EARNED <span class="var"> #{current_user.id}</span> MINUTES CONNECTED TO THE INTERNET
+    p
+      a href="/comment" CONNECT TO THE INTERNET >

@@ -1,0 +1,27 @@
+div.row
+  div class="col-sm-6 col-sm-offset-3"
+    h1 THE WALL
+    div class="col-xs-12 box"
+      h3 ADD YOUR NAME
+      div class="box inner"
+        - if @names
+          - @names.each do |name|
+            p #{name.name}
+        - else
+          p Joe Jackson
+          p Tina Weymouth
+          p Chelsea Manning
+
+      div.form
+        = form_for :name, url: names_path do |f|
+          = f.text_field :name
+          = f.submit 'SUBMIT'
+
+div.row
+  div class="col-sm-6 col-sm-offset-3"
+    -if current_user
+        p YOU HAVE EARNED <span class="var"> #{current_user.id}</span> MINUTES CONNECTED TO THE INTERNET
+    p
+      a href="/comment" CONNECT TO THE INTERNET >
+    p
+      a href="/" < CHOOSE ANOTHER PAYEMENT METHOD

@@ -1,0 +1,178 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+html {
+  height: 100%;
+}
+body {
+ //@include gradient-directional(#fff, #91f6a7, 45deg);
+ background-color: #91f6a7;
+ height: 100%;
+}
+
+a{
+  color: $gray-dark;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: $gray-dark;
+
+}
+
+.button {
+  background: #fff;
+  border: 4px solid $gray-dark;
+  margin-top: 4px;
+  text-align: center;
+
+}
+
+.button:active, .button:focus, .button:hover {
+  background: $gray-dark;
+  text-decoration: none;
+  color: white;
+
+}
+
+.box {
+  background: #fff;
+  border: 4px solid $gray-dark;
+  padding: 6px;
+
+  h3:first-child {
+    margin-top: 5px;
+  }
+
+}
+
+.inner {
+  background: #91f6a7;
+  padding: 5px;
+  max-height: 200px;
+  overflow: scroll;
+}
+
+.form-actions {
+  margin-top: 5px;
+}
+
+h1, h2, h3, h4, h5, p, input[type=submit] {
+  font-family: 'DINEngschriftStd-Regular', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  letter-spacing: 1px;
+  margin-top: 0px;
+  margin-bottom:0px;
+}
+
+h2{
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+#dream_text {font-family: 'Pictos', sans-serif;
+        font-weight: normal;
+        font-style: normal;
+        line-height: normal;
+        color: #91F6A7;
+        background: none repeat scroll 0% 0% #333;
+        font-size: 20px;
+        width: 100%;
+        border: medium none;
+        resize: none;
+        padding: 5px;
+      }
+
+.boxed-text {
+  @extend .col-xs-6;
+  padding-left:2px;
+  padding-right:2px;
+
+  h2 {
+    margin: 14px 0 10px 0;
+  }
+
+  a {
+    color: $gray-dark;
+    text-decoration: none;
+  }
+}
+
+.boxed-text-span {
+  @extend .col-xs-12;
+  padding-left:2px;
+  padding-right:2px;
+
+  h2 {
+    margin: 14px 0 10px 0;
+  }
+
+
+  a {
+    color: $gray-dark;
+    text-decoration:none;
+  }
+
+}
+input[type=submit]{
+  @extend .button;
+  background-color: $gray-dark;
+  color: #fff;
+  margin-top: 5px;
+}
+
+input[type=text]{
+  width: 100%;
+  background-color: $gray-dark;
+  border: medium none;
+  color: #91F6A7;
+  padding: 5px;
+  margin-top: 5px;
+
+
+}
+
+.var{
+  background: $gray-dark;
+  color: #fff;
+  padding: 3px 4px 1px 4px;
+}
+
+input[type=number]{
+  width: 50px;
+  background: $gray-dark;
+  color: #fff;
+  border:none;
+  border-radius: 0;
+  height: 30px;
+  margin-top: -10px;
+}
+
+.rating {
+  background: #fff;
+  border:none;
+}
+
+.buttonrow{
+  float:left;
+  padding-right:10px;
+}
+
+.row  {
+  margin-top: 20px;
+}

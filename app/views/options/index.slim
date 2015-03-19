@@ -50,10 +50,16 @@ div.row
       a href="/tweets/new"
         div class="button"
           h2 THE BIRD
-    div class="boxed-text-span"
-      a href="/ratings/new"
-        div class="button"
-          h2 THE PRICE
+    - if current_user.minutes >= 35      
+      div class="boxed-text-span"  
+          a href="/ratings/new"
+            div class="button"
+              h2 THE PRICE
+    - else
+      div class="boxed-text-span disabled"  
+        a href=""
+          div class="button"
+            h2 THE PRICE
 div.row
   div class="col-sm-6 col-sm-offset-3"
     -if current_user
@@ -66,3 +72,5 @@ div.row
       a href="/connected" CONNECT TO THE INTERNET >
     p
       a href="/info" ABOUT >
+div 
+

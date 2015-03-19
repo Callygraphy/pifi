@@ -197,3 +197,19 @@ outline: none;
 
   }
 }
+
+.disabled .button {
+    background-color: #fff;
+    border-color: #B8B6B6;
+
+}
+
+.disabled .button:hover {
+  color: #B8B6B6;
+}
+
+.disabled>span, .disabled>span:hover, .disabled>span:focus, .disabled>a, .disabled>a:hover, .pagination>.disabled>a:focus {
+  color: #B8B6B6;
+  background-color: #fff;
+  cursor: not-allowed;
+}

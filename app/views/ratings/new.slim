@@ -1,45 +1,45 @@
 div.row
   div class="col-sm-6 col-sm-offset-3"
-    h1 THE PRICE
+    h2 PAYMENT METHOD
+    h1 class="pull-left" THE PRICE
+    h3 class="pull-right" style="padding-top: 11px" <span style="font-size: 30px;">&infin;</span> mins
     div class="col-xs-12 box"
       h3 HOW MUCH WERE THESE WORTH?
+      
+      = form_for :rating, url: ratings_path do |f|
+        div.row style="margin: 20px 0 0 0;"
+          h3 class="pull-left" THE WALL &nbsp;
+          = f.number_field :bird, :class => 'rating form-control input-number pull-left', :max => '100000000000', :min => '0', :value => '5'
+          p class="pull-left" &nbsp; MINS
 
-      div.row style="margin: 20px 0 0 0;"
-        h4 class="pull-left" THE WALL &nbsp; 
+        div.row style="margin: 20px 0 0 0;"
+          h3 class="pull-left" THE DREAM &nbsp;
+          = f.number_field :dream, :class => 'rating form-control input-number pull-left', :max => '100000000000', :min => '0', :value => '5'
+          p class="pull-left" &nbsp; MINS
 
-        input type="number" name="quant[1]" class="rating form-control input-number pull-left" value="5" min="1" max="999999999"
-        p class="pull-left" &nbsp; MINS
+        div.row style="margin: 20px 0 0 0;"
+          h3 class="pull-left" THE DROP &nbsp;
+          = f.number_field :ball, :class => 'rating form-control input-number pull-left', :max => '100000000000', :min => '0', :value => '5'
+          p class="pull-left" &nbsp; MINS
 
-      div.row style="margin: 20px 0 0 0;"
-        h4 class="pull-left" THE DREAM &nbsp; 
-
-        input type="number" name="quant[1]" class="rating form-control input-number pull-left" value="5" min="1" max="999999999"
-        p class="pull-left" &nbsp; MINS
-
-      div.row style="margin: 20px 0 0 0;"
-        h4 class="pull-left" THE DROP &nbsp; 
-
-        input type="number" name="quant[1]" class="rating form-control input-number pull-left" value="5" min="1" max="999999999"
-        p class="pull-left" &nbsp; MINS
-
-      div.row style="margin: 20px 0 0 0;"
-        h4 class="pull-left" THE BIRD &nbsp; 
-
-        input type="number" name="quant[1]" class="rating form-control input-number pull-left" value="5" min="1" max="999999999"
-        p class="pull-left" &nbsp; MINS
-
-
-      br /
-      a href="/"
-        input type="submit" name="commit" value="SUBMIT"
+        div.row style="margin: 20px 0 0 0;"
+          h3 class="pull-left" THE BIRD &nbsp;
+          = f.number_field :tweet, :class => 'rating form-control input-number pull-left', :max => '100000000000', :min => '0', :value => '5'
+          p class="pull-left" &nbsp; MINS
+        
+        br /
+        = f.submit 'SUBMIT'
 
 
 div.row
   div class="col-sm-6 col-sm-offset-3"
     -if current_user
-        p YOU HAVE EARNED <span class="var"> #{current_user.id}</span> MINUTES CONNECTED TO THE INTERNET
+        p YOU HAVE EARNED <span class="var"> #{current_user.minutes}</span> MINUTES CONNECTED TO THE INTERNET
+div.row
+  div class="col-sm-6 col-sm-offset-3"
     p
-      a href="/comment" CONNECT TO THE INTERNET >
+      a href="/" < CHOOSE ANOTHER PAYMENT METHOD
     p
-      a href="/" < CHOOSE ANOTHER PAYEMENT METHOD
+      a href="/connected" CONNECT TO THE INTERNET >
+
 

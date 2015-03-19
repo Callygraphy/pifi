@@ -1,6 +1,8 @@
 div.row  
   div class="col-sm-6 col-sm-offset-3"
-    h1 THE BIRD
+    h2 PAYMENT METHOD
+    h1 class="pull-left" THE BIRD
+    h3 class="pull-right" style="padding-top: 11px" +10mins
     div class="col-xs-12 box"
       div class="media"
         a class="pull-left" href="/"
@@ -11,13 +13,15 @@ div.row
 
       div.buttonrow   
           = form_for :tweet, url: tweets_path do |f|
-            = f.hidden_field :catch, value: true
+            = f.hidden_field :tweet, value: true
             = f.submit 'TWEET'
 div.row
   div class="col-sm-6 col-sm-offset-3"
     -if current_user
-        p YOU HAVE EARNED <span class="var"> #{current_user.id}</span> &nbsp; MINUTES CONNECTED TO THE INTERNET
+        p YOU HAVE EARNED <span class="var"> #{current_user.minutes}</span> MINUTES CONNECTED TO THE INTERNET
+div.row
+  div class="col-sm-6 col-sm-offset-3"
     p
-      a href="/comment" CONNECT TO THE INTERNET >
+      a href="/" < CHOOSE ANOTHER PAYMENT METHOD
     p
-      a href="/" < CHOOSE ANOTHER PAYEMENT METHOD
+      a href="/connected" CONNECT TO THE INTERNET >

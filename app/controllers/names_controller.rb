@@ -8,6 +8,9 @@ class NamesController < ApplicationController
     @name = Name.new(name_params)
     @name.user_id = current_user.id
     @name.save
+    @user_mins = User.find(current_user.id)
+    @user_mins.minutes += 20
+    @user_mins.save
     redirect_to '/'
   end
 

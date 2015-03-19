@@ -1,15 +1,25 @@
 Rails.application.routes.draw do
 
+  get 'static_pages/thanks'
+
+  get 'static_pages/info'
+
+  get 'static_pages/connect'
+
   resources :names
   resources :users
   resources :dreams
   resources :balls
   resources :tweets
   resources :ratings
-  resources :comments
+  # resources :comments
 
+  get '/no-thanks' => 'static_pages#thanks'
+  get '/connected' => 'static_pages#connect'
+  get '/info' => 'static_pages#info'
 
   root 'options#index'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

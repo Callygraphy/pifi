@@ -3,20 +3,23 @@ def new
 end
 
 def create
-  # @dream = Dream.new(dream_params)
-  # @dream.user_id = current_user.id
-  # @dream.save
-  # redirect_to '/'
+  @rating = Rating.new(rating_params)
+  @rating.user_id = current_user.id
+  @rating.save
+	@user_mins = User.find(current_user.id)
+    @user_mins.minutes += 40
+    @user_mins.save
+  redirect_to '/connected'
 end
 
 def index
-  # @dreams = Dream.all
+  # @ratings = rating.all
 end
 
-# private
-#   def dream_params
-#     params.require(:dream).permit(:text)
-#   end
+private
+  def rating_params
+    params.require(:rating).permit(:tweet, :ball, :dream, :bird)
+  end
 
 
 end

@@ -3,7 +3,7 @@
     div class="modal-dialog"
       div class="modal-content"
         div class="modal-header"
-          h4 class="modal-title" id="myModalLabel" Terms and Conditions
+          h1 class="modal-title" id="myModalLabel" THIS IS AN ARTWORK AND AN EXPERIMENT
         div class="modal-body" 
           h4 YOU WILL INTERACT WITH A NUMBER OF TASKS THAT WILL EARN YOU TIME CONNECTED TO THE INTERNET 
           h4 THESE INTERACTIONS WILL GENERATE DATA.
@@ -13,17 +13,18 @@
           h4 YOU NEED TO BE 18 OR OVER TO PARTICPATE IN THIS EXPERIMENT.
           h4
             a href="/info" MORE INFORMATION >
+
           h4 IF YOU UNDERSTAND AND ACCEPT THESE CONDITIONS PRESS ACCEPT
 
 
         div class="modal-footer"
+
+          = form_for :user, url: users_path, :html => {:id => 'users_new'} , remote: true do |f|
+            = f.submit 'ACCEPT', :class => 'user-new'
           div 
             a href="/thanks"
-              button type="button" class="btn btn-default" No thanks
+              button type="button" class="custom-button" NO THANKS
 
-          = form_for :user, url: users_path, remote: true do |f|
-            / button 
-            = f.submit 'ACCEPT', :class => 'btn btn-default'
 
 div.row
   div class="col-sm-6 col-sm-offset-3"
@@ -56,6 +57,12 @@ div.row
 div.row
   div class="col-sm-6 col-sm-offset-3"
     -if current_user
-        p YOU HAVE EARNED <span class="var"> #{current_user.id}</span> MINUTES CONNECTED TO THE INTERNET
+        p YOU HAVE EARNED <span class="var"> #{current_user.minutes}</span> MINUTES CONNECTED TO THE INTERNET
+    -else
+        p YOU HAVE EARNED <span class="var">0</span> MINUTES CONNECTED TO THE INTERNET
+div.row
+  div class="col-sm-6 col-sm-offset-3"
     p
-      a href="/comment" CONNECT TO THE INTERNET >
+      a href="/connected" CONNECT TO THE INTERNET >
+    p
+      a href="/info" ABOUT >

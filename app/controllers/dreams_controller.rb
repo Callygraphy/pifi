@@ -7,6 +7,9 @@ class DreamsController < ApplicationController
     @dream = Dream.new(dream_params)
     @dream.user_id = current_user.id
     @dream.save
+    @user_mins = User.find(current_user.id)
+    @user_mins.minutes += 10
+    @user_mins.save
     redirect_to '/'
   end
 

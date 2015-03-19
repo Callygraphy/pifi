@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bird: 1
+  ball: 1
+  tweet: 1
+  dream: 1
+
+two:
+  bird: 1
+  ball: 1
+  tweet: 1
+  dream: 1

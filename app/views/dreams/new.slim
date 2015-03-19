@@ -1,18 +1,22 @@
 div.row
 	div class="col-sm-6 col-sm-offset-3"
-	  h1 THE DREAM
-	  div class="col-xs-12 box"
-	    h3 WHAT DID YOU DREAM ABOUT LAST NIGHT?
+	    h2 PAYMENT METHOD
+	    h1 class="pull-left" THE DREAM
+	    h3 class="pull-right" style="padding-top: 11px" +10mins
+		div class="col-xs-12 box"
+		    h3 WHAT DID YOU DREAM ABOUT LAST NIGHT?
 
-	    = form_for :dream, url: dreams_path do |f|
-	      = f.text_area :text
-	      p = f.submit 'SUBMIT'
+		    = form_for :dream, url: dreams_path do |f|
+		      = f.text_area :text, :class => 'input_text'
+		      p = f.submit 'SUBMIT'
 
 div.row
   div class="col-sm-6 col-sm-offset-3"
     -if current_user
-        p YOU HAVE EARNED <span class="var"> #{current_user.id}</span> MINUTES CONNECTED TO THE INTERNET
+        p YOU HAVE EARNED <span class="var"> #{current_user.minutes}</span> MINUTES CONNECTED TO THE INTERNET
+div.row
+  div class="col-sm-6 col-sm-offset-3"
     p
-      a href="/comment" CONNECT TO THE INTERNET >
+      a href="/" < CHOOSE ANOTHER PAYMENT METHOD
     p
-      a href="/" < CHOOSE ANOTHER PAYEMENT METHOD
+      a href="/connected" CONNECT TO THE INTERNET >

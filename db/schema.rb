@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150219105903) do
+ActiveRecord::Schema.define(version: 20150319195510) do
 
   create_table "balls", force: :cascade do |t|
     t.boolean  "catch"
@@ -40,6 +40,18 @@ ActiveRecord::Schema.define(version: 20150219105903) do
 
   add_index "names", ["user_id"], name: "index_names_on_user_id"
 
+  create_table "ratings", force: :cascade do |t|
+    t.integer  "bird"
+    t.integer  "ball"
+    t.integer  "tweet"
+    t.integer  "dream"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "ratings", ["user_id"], name: "index_ratings_on_user_id"
+
   create_table "tweets", force: :cascade do |t|
     t.boolean  "tweet"
     t.integer  "user_id"
@@ -52,6 +64,7 @@ ActiveRecord::Schema.define(version: 20150219105903) do
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "minutes"
   end
 
 end

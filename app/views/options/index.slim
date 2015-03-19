@@ -50,12 +50,18 @@ div.row
       a href="/tweets/new"
         div class="button"
           h2 THE BIRD
-    - if current_user.minutes >= 35      
-      div class="boxed-text-span"  
-          a href="/ratings/new"
+    -if current_user
+      - if current_user.minutes >= 35      
+        div class="boxed-text-span"  
+            a href="/ratings/new"
+              div class="button"
+                h2 THE PRICE
+      - else
+        div class="boxed-text-span disabled"  
+          a href=""
             div class="button"
               h2 THE PRICE
-    - else
+    -else
       div class="boxed-text-span disabled"  
         a href=""
           div class="button"

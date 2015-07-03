@@ -27,19 +27,27 @@ var timer3;
 $(window).load(function(){
 
 
-       $(function($) {
-               timer = setTimeout(bgAnim, 0);
-                timer2 = setTimeout(innerAnim, 0);
-                timer3 = setTimeout(textAnim, 0);
-              });
-
-
-       });
+      //  $(function($) {
+      //          timer = setTimeout(bgAnim, 0);
+      //           timer2 = setTimeout(innerAnim, 0);
+      //           timer3 = setTimeout(textAnim, 0);
+      //         });
+       //
+       //
+      //  });
 
 
 $(document).ready(function(){
     $('#myModal').modal('show');
+
+
+    $('#myModal').on('hidden.bs.modal', function (e) {
+      console.log('boom!');
+      $('#Modal2').modal('show');
+
     });
+
+  });
 
 function bgAnim() {
         $("body").animate({

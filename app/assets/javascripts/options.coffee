@@ -8,4 +8,4 @@ $(document).ready ->
   $("#users_new").on("ajax:success", (e, data, status, xhr) ->
     $("#users_new").append "<p>Success!</p>"
   ).on "ajax:error", (e, xhr, status, error) ->
-    $('#myModal').modal('hide');
+    $('#Modal2').modal('hide');

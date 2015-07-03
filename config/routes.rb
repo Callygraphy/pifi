@@ -4,7 +4,6 @@ Rails.application.routes.draw do
 
   get 'static_pages/info'
 
-  get 'static_pages/connect'
 
   resources :names
   resources :users
@@ -12,10 +11,12 @@ Rails.application.routes.draw do
   resources :balls
   resources :tweets
   resources :ratings
+  resources :stream
+  resources :connect
+
   # resources :comments
 
   get '/no-thanks' => 'static_pages#thanks'
-  get '/connected' => 'static_pages#connect'
   get '/info' => 'static_pages#info'
 
   root 'options#index'

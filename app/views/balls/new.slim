@@ -4,13 +4,16 @@ div.row
 	    h1 class="pull-left" THE DROP
 	    h3 class="pull-right" style="padding-top: 11px" +5mins
 		div class="col-xs-12 box"
-		    h3 THE LAST PERSON <span class="var">DROPPED</span> MAKING A RUN OF <span class="var">#{@count}</span> CATCHES
+			- if @count
+				h3 THE LAST PERSON <span class="var">DROPPED</span> MAKING A RUN OF <span class="var">#{@count}</span> CATCHES
+			- else
+				h3 THE LAST PERSON <span class="var">DROPPED</span> MAKING A RUN OF <span class="var">0</span> CATCHES
 
-			div.buttonrow   
+			div.buttonrow
 			   = form_for :ball, url: balls_path do |f|
 			      = f.hidden_field :catch, value: true
 			      = f.submit 'CATCH'
-			div.buttonrow   
+			div.buttonrow
 			    = form_for :ball, url: balls_path do |f|
 			      = f.hidden_field :catch, value: false
 			      = f.submit 'DROP'

@@ -1,0 +1,35 @@
+div class="col-sm-6 col-sm-offset-3"
+  h1 stream
+  div class="col-xs-12 box"
+    - @combined.each do |stream|
+      div class="col-xs-12" style="padding-bottom: 10px;"
+        -if stream[:bird]
+          p Bird #{stream[:bird]} minutes
+          p Ball #{stream[:ball]} minutes
+          p Tweet #{stream[:tweet]} minutes
+          p Dream #{stream[:dream]} minutes
+
+
+        -if stream[:name]
+          div class="names"
+            p The name <span class="var">#{stream[:name]}</span> was added to the wall
+
+
+
+        -if stream[:text]
+          div class="dreams"
+            p a new dream was added
+            p#dream_text #{stream[:text]}
+
+        -if stream[:tweet] && !stream[:ball]
+          p tweeted? #{stream[:tweet]}
+
+        -if stream[:catch] == false
+          div.balls
+            p The ball was caught
+        -if stream[:catch]
+          div class="balls dropped"
+            p The ball was dropped
+
+
+        p class="small pull-right" created at #{stream[:created_at].hour} by #{stream[:user_id]}

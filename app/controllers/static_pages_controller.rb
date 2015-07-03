@@ -5,6 +5,4 @@ class StaticPagesController < ApplicationController
   def info
   end
 
-  def connect
-  end
 end

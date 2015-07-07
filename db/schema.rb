@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150319195510) do
+ActiveRecord::Schema.define(version: 20150706143532) do
 
   create_table "balls", force: :cascade do |t|
     t.boolean  "catch"
@@ -55,8 +55,10 @@ ActiveRecord::Schema.define(version: 20150319195510) do
   create_table "tweets", force: :cascade do |t|
     t.boolean  "tweet"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "twitterid",  limit: 8
+    t.text     "text"
   end
 
   add_index "tweets", ["user_id"], name: "index_tweets_on_user_id"

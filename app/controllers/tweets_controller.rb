@@ -5,11 +5,16 @@ end
 
 def create
   @tweet = Tweet.new(tweet_params)
+  @status = params[:tweet][:text]
+  update = $twitter.update(@status)
+  @tweet.twitterid = update.id
   @tweet.user_id = current_user.id
   @tweet.save
     @user_mins = User.find(current_user.id)
     @user_mins.minutes += 10
     @user_mins.save
+
+
   redirect_to '/'
 end
 
@@ -19,7 +24,7 @@ end
 
 private
   def tweet_params
-    params.require(:tweet).permit(:tweet)
+    params.require(:tweet).permit(:tweet, :text)
   end
 
 

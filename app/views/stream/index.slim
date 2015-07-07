@@ -1,6 +1,11 @@
 div class="col-sm-6 col-sm-offset-3"
   h1 stream
   div class="col-xs-12 box"
+    - @tweets_stats.each do |t|
+      p #{t.inspect}
+
+
+  div class="col-xs-12 box"
     - @combined.each do |stream|
       div class="col-xs-12" style="padding-bottom: 10px;"
         -if stream[:bird]
@@ -21,8 +26,8 @@ div class="col-sm-6 col-sm-offset-3"
             p a new dream was added
             p#dream_text #{stream[:text]}
 
-        -if stream[:tweet] && !stream[:ball]
-          p tweeted? #{stream[:tweet]}
+        -if stream[:twitterid]
+          p tweeted? #{stream[:twitterid]}
 
         -if stream[:catch] == false
           div.balls

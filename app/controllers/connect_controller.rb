@@ -12,17 +12,23 @@ class ConnectController < ApplicationController
   end
 
 
-  def create
+  def connect
   	@ip = request.ip
   	arpreturn = %x[arp -a #{@ip}]
     if arpreturn
   		@mac = arpreturn.match('..:..:..:..:..:..')
   		@connect = %x[sudo iptables -I internet 1 -t mangle -m mac --mac-source #{@mac} -j RETURN ] 
-  		redirect '/'
-  	else
-  		redirect '/info'
+       #@connect = %x[echo 'boom'] 
+  		if @connect 
+        redirect_to '/'
+      else
+        redirect_to '/info'
+      end
+    else
+      redirect_to '/no-thanks'
+
   	end  	
-  
+
   end
 
   def show

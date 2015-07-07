@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get 'static_pages/info'
 
+  get 'connect/connect'
 
   resources :names
   resources :users

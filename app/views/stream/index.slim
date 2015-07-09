@@ -1,40 +1,66 @@
 div class="col-sm-6 col-sm-offset-3"
-  h1 stream
-  div class="col-xs-12 box"
-    - @tweets_stats.each do |t|
-      p #{t.inspect}
-
+  / h1 stream
+  / div class="col-xs-12 box"
+    / - @tweets_stats.each do |t|
+    /   p #{t.inspect}
+    /
 
   div class="col-xs-12 box"
     - @combined.each do |stream|
-      div class="col-xs-12" style="padding-bottom: 10px;"
+      div class="col-xs-12" style="padding-bottom: 20px;"
         -if stream[:bird]
-          p Bird #{stream[:bird]} minutes
-          p Ball #{stream[:ball]} minutes
-          p Tweet #{stream[:tweet]} minutes
-          p Dream #{stream[:dream]} minutes
-
+          div.ratings
+            - bird_diff =  stream[:bird] - 20
+            - dream_diff =  stream[:dream] - 10
+            - ball_diff = stream[:ball] - 5
+            - tweet_diff = stream[:tweet] - 10
+            h2 STOCK WAS TAKEN
+            p class="small" rated by #{stream[:user_id]} at #{stream[:created_at].hour}.#{stream[:created_at].min}
+            p THE WALL <span class="pull-right">#{stream[:bird]}mins <span class="var">+#{bird_diff}</span></span>
+            p THE DREAM <span class="pull-right">#{stream[:dream]}mins <span class="var">+#{dream_diff}</span></span>
+            p THE BALL <span class="pull-right">#{stream[:ball]}mins <span class="var">+#{ball_diff}</span></span>
+            p THE BIRD <span class="pull-right">#{stream[:tweet]}mins <span class="var">+#{tweet_diff}</span></span>
 
         -if stream[:name]
           div class="names"
-            p The name <span class="var">#{stream[:name]}</span> was added to the wall
+            div class="col-xs-2 "
+              img src="/images/name-left.png"
+            div class="col-xs-8 "
+              p A NAME WAS GIVEN
+              h1 #{stream[:name]}
+              hr
+              p.small created at #{stream[:created_at].hour}.#{stream[:created_at].min} by #{stream[:user_id]}
+            div class="col-xs-2 "
+              img src="/images/name-right.png" align="right"
 
-
-
-        -if stream[:text]
+        -if stream[:text] && !stream[:twitterid]
           div class="dreams"
-            p a new dream was added
-            p#dream_text #{stream[:text]}
+            div class="col-xs-2 "
+                img src="/images/dream-left.png"
 
-        -if stream[:twitterid]
-          p tweeted? #{stream[:twitterid]}
+            div class="col-xs-8 "
+              p A DREAM WAS RECORDED
+              p#dream_text class="text" #{stream[:text]}
+              p class="small" created at #{stream[:created_at].hour}.#{stream[:created_at].min} by #{stream[:user_id]}
+
+            div class="col-xs-2 "
+              img src="/images/dream-right.png" align="right"
+
+        -if stream[:tweet] && !stream[:ball]
+          div class="col-xs-12 box tweets"
+            h2 style="margin:15px 0;" "#{stream[:text]}"
+            h2 class="small pull-right" this was tweeted to 100 followers by #{stream[:user_id]} at #{stream[:created_at].hour}.#{stream[:created_at].min}
 
         -if stream[:catch] == false
-          div.balls
-            p The ball was caught
+          div class="balls dropped"
+            h2 The ball was dropped
+            p breaking a total run of <span class="var">#{stream[:count]}</span>
+            p class="small" created at #{stream[:created_at].hour}.#{stream[:created_at].min} by #{stream[:user_id]}
+
         -if stream[:catch]
           div class="balls dropped"
-            p The ball was dropped
+            h2 The ball was caught
+            p making a total run of <span class="var">#{stream[:count]}</span>
+            p class="small" created at #{stream[:created_at].hour}.#{stream[:created_at].min} by #{stream[:user_id]}
 
-
-        p class="small pull-right" created at #{stream[:created_at].hour} by #{stream[:user_id]}
+        hr

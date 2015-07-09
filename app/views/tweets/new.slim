@@ -13,7 +13,7 @@ div.row
 
           = form_for :tweet, url: tweets_path do |f|
             = f.hidden_field :tweet, value: true
-            = f.text_field :text, :class => 'input_text', placeholder: 'ANOTHER PERSON IS CONNECTING TO THE #FREEWIFI', :html => {:maxlength => 140}
+            = f.text_field :text, :class => 'input_text', placeholder: 'ANOTHER PERSON IS CONNECTING TO THE #FREEWIFI', :maxlength => 140
             div.buttonrow
               = f.submit 'TWEET'
 div.row

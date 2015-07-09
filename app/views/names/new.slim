@@ -17,7 +17,7 @@ div.row
         div.form
           = form_for :name, url: names_path do |f|
             = f.text_field :name, :class => 'input_text'
-            = f.submit 'SUBMIT'
+            = f.submit 'SUBMIT', data: { confirm: 'THIS DATA WILL BE PUBLICALLY VISBLE TO OTHER PEOPLE USING THIS WEBSITE AND DISTRIBUTED IN OTHER CONTEXTS AS WELL. THIS NAME WILL BE LINKED WITH ALL THE OTHER DATA YOU SUBMIT ON THIS SITE AND PEOPLE MAY BE ABLE TO RECOGNISE YOU FROM IT. ARE YOU HAPPY TO PROCEED?' }
 
 div.row
   div class="col-sm-6 col-sm-offset-3"

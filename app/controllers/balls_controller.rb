@@ -36,7 +36,7 @@ class BallsController < ApplicationController
 
   private
     def ball_params
-      params.require(:ball).permit(:catch)
+      params.require(:ball).permit(:catch, :count)
     end
 
 end

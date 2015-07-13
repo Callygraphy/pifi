@@ -4,7 +4,7 @@ div.row
       h1 class="pull-left" THE WALL
       h3 class="pull-right" style="padding-top: 11px" +20mins
       div class="col-xs-12 box"
-        h3 ADD YOUR NAME
+        h3 THESE NAMES HAVE BEEN GIVEN
         div class="box inner"
           - if @names
             - @names.each do |name|
@@ -15,9 +15,11 @@ div.row
             p Chelsea Manning
 
         div.form
+          h3 ADD YOUR NAME
           = form_for :name, url: names_path do |f|
             = f.text_field :name, :class => 'input_text'
-            = f.submit 'SUBMIT', data: { confirm: 'THIS DATA WILL BE PUBLICALLY VISBLE TO OTHER PEOPLE USING THIS WEBSITE AND DISTRIBUTED IN OTHER CONTEXTS AS WELL. THIS NAME WILL BE LINKED WITH ALL THE OTHER DATA YOU SUBMIT ON THIS SITE AND PEOPLE MAY BE ABLE TO RECOGNISE YOU FROM IT. ARE YOU HAPPY TO PROCEED?' }
+            = f.submit 'SUBMIT'
+            
 
 div.row
   div class="col-sm-6 col-sm-offset-3"

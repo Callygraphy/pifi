@@ -15,11 +15,11 @@ def create
     @user_mins.save
 
 
-  redirect_to '/'
+  redirect_to '/tweets'
 end
 
 def index
-  # @dreams = Dream.all
+    @tweet = Tweet.where(user_id: current_user.id).last
 end
 
 private

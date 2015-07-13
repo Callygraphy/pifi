@@ -1,18 +1,11 @@
 div.row
   	div class="col-sm-6 col-sm-offset-3"
     	div class="col-xs-12 box"
-	      div class="dreams"
-	        div class="col-xs-2 "
-	            img src="/images/dream-left.png"
+          div class="col-xs-12 tweet "
+            h2 style="margin:15px 0;" "#{@tweet.text}"
+            - unless @tweet.user.nil?
+              h2 class="small pull-right" tweeted to 100 followers by you at #{@tweet.created_at.hour}.#{@tweet.created_at.min}
 
-	        div class="col-xs-8"
-	          p YOU RECORDED A DREAM
-	          p#dream_text class="text" #{@dream.text}
-	          - unless @dream.user.nil?
-	            p class="small" recorded at #{@dream.created_at.hour}.#{@dream.created_at.min}
-
-	        div class="col-xs-2 "
-	          img src="/images/dream-right.png" align="right"
 
 div.row
   div class="col-sm-6 col-sm-offset-3"

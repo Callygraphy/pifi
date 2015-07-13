@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   get '/no-thanks' => 'static_pages#thanks'
   get '/info' => 'static_pages#info'
+  get '/connected' => 'static_pages#connect'
 
   root 'options#index'
 

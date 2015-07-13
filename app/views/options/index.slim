@@ -10,6 +10,7 @@
           h4 THESE INTERACTIONS ARE PUBLIC AND THE DATA WILL BE IN THE PUBLIC DOMAIN AND IS NOT COVERED BY DATA PROTECTION LEGISLATION
           h4 THE DATA WILL APPEAR HERE AND IN OTHER PUBLIC CONTEXTS AND ARTWORKS.
           h4 YOU ARE FREE TO CHOOSE HOW MUCH DATA YOU SHARE BUT BE AWARE YOU MAY BE PERSONALLY IDENTIFIABLE FROM THE DATA
+          h4 YOU WILL BE GIVEN A RANDOMLY GENERATED PSUEDONYM
           h4 YOU NEED TO BE 18 OR OVER TO PARTICPATE IN THIS EXPERIMENT.
           h4
             a href="/info" MORE INFORMATION >
@@ -18,8 +19,10 @@
 
 
         div class="modal-footer"
-          button type="button" class="custom-button" data-dismiss="modal" Close
-          button type="button" class="custom-button" Save changes
+          button type="button" class="custom-button" data-dismiss="modal" ACCEPT
+          div
+            a href="/thanks"
+              button type="button" class="custom-button" NO THANKS
 
   div class="modal" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="Modal2Label" aria-hidden="true"
       div class="modal-dialog"
@@ -40,7 +43,7 @@
 
 
           div class="modal-footer"
-            = form_for :user, url: users_path, :html => {:id => 'users_new'} , remote: true do |f|
+            = form_for :user, url: users_path, :html => {:id => 'users_new'}  do |f|
               = f.submit 'ACCEPT', :class => 'user-new'
             div
               a href="/thanks"
@@ -51,6 +54,7 @@ div.row
   div class="col-sm-6 col-sm-offset-3"
     h2 There is no such thing as
     h1 FREE WIFI
+    br /
     p CHOOSE A PAYMENT METHOD
 
 
@@ -88,15 +92,27 @@ div.row
           div class="button"
             h2 THE PRICE
 div.row
-  div class="col-sm-6 col-sm-offset-3"
-    -if current_user
+  br /
+  -if current_user
+    div class="col-sm-6 col-sm-offset-3"
+      -if current_user.connect
+        p YOU HAVE EARNED <span class="var"> &infin;</span> MINUTES CONNECTED TO THE INTERNET
+      -else
         p YOU HAVE EARNED <span class="var"> #{current_user.minutes}</span> MINUTES CONNECTED TO THE INTERNET
-    -else
-        p YOU HAVE EARNED <span class="var">0</span> MINUTES CONNECTED TO THE INTERNET
+    div class="col-sm-6 col-sm-offset-3"
+      p style="float:left" CURRENT USER <span class="var"> #{current_user.name}</span>&nbsp;
+      = link_to "generate new psuedonym", current_user, method: :put, :html => {:class => 'small pull-left'}
+  -else
+    div class="col-sm-6 col-sm-offset-3"
+
+      p YOU HAVE EARNED <span class="var">0</span> MINUTES CONNECTED TO THE INTERNET
+
 div.row
   div class="col-sm-6 col-sm-offset-3"
     p
-      a href="/connected" CONNECT TO THE INTERNET >
+      a href="/connect" CONNECT TO THE INTERNET >
+div.row
+  div class="col-sm-6 col-sm-offset-3"
     p
-      a href="/info" ABOUT >
+      a.small href="/info" ABOUT THIS WEBSITE >
 div

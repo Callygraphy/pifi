@@ -10,11 +10,11 @@ class DreamsController < ApplicationController
     @user_mins = User.find(current_user.id)
     @user_mins.minutes += 10
     @user_mins.save
-    redirect_to '/'
+    redirect_to '/dreams'
   end
 
   def index
-    @dreams = Dream.all
+    @dream = Dream.where(user_id: current_user.id).last
   end
 
   private

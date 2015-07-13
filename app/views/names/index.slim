@@ -1,0 +1,46 @@
+div.row
+  div class="col-sm-6 col-sm-offset-3"
+    div class="col-xs-12" style="padding-bottom: 30px;"
+      div class="col-xs-12 box"
+        div class="names"
+          div class="col-xs-2 "
+            img src="/images/name-left.png"
+          div class="col-xs-8 "
+            p YOU GAVE THE NAME
+            h1 #{@name.name}
+            hr
+            p.small given at #{@name.created_at.hour}.#{@name.created_at.min}
+
+          div class="col-xs-2 "
+            img src="/images/name-right.png" align="right"
+
+div.row
+  div class="col-sm-6 col-sm-offset-3"
+    -if current_user
+        p YOU HAVE EARNED <span class="var"> #{current_user.minutes}</span> MINUTES CONNECTED TO THE INTERNET
+div.row
+  div class="col-sm-6 col-sm-offset-3"
+    p
+      a href="/" < CHOOSE ANOTHER PAYMENT METHOD
+    p
+      a href="/connected" CONNECT TO THE INTERNET >
+
+
+    / div class="col-xs-12 box"
+    /   h1 class="pull-left" style="padding-bottom: 30px;" THE WALL
+
+    /   - @names.each do |name|
+    /     div class="col-xs-12" style="padding-bottom: 30px;"
+    /       div class="names"
+    /         div class="col-xs-2 "
+    /           img src="/images/name-left.png"
+    /         div class="col-xs-8 "
+    /           p A NAME WAS GIVEN
+    /           h1 #{name.name}
+    /           hr
+    /           - unless name.user.nil?
+    /             p.small created at #{name.created_at.hour}.#{name.created_at.min} by #{name.user.name}
+    /         div class="col-xs-2 "
+    /           img src="/images/name-right.png" align="right"
+    /       hr
+

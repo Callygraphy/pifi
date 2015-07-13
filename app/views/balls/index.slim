@@ -1,18 +1,18 @@
 div.row
-  	div class="col-sm-6 col-sm-offset-3"
-    	div class="col-xs-12 box"
-	      div class="dreams"
-	        div class="col-xs-2 "
-	            img src="/images/dream-left.png"
+  div class="col-sm-6 col-sm-offset-3"
+    -if @ball.catch == false
+      div class="col-xs-12 box dropped"
+        div class="balls dropped"
+          h2 You dropped the ball
+          p breaking a total run of <span class="var">#{@ball.count}</span>
+          p class="small" dropped at #{@ball.created_at.hour}.#{@ball.created_at.min} 
 
-	        div class="col-xs-8"
-	          p YOU RECORDED A DREAM
-	          p#dream_text class="text" #{@dream.text}
-	          - unless @dream.user.nil?
-	            p class="small" recorded at #{@dream.created_at.hour}.#{@dream.created_at.min}
-
-	        div class="col-xs-2 "
-	          img src="/images/dream-right.png" align="right"
+    -if @ball.catch == true
+      div class="col-xs-12 box"
+        div class="balls"
+          h2 You caught the ball
+          p making a total run of <span class="var">#{@ball.count}</span>
+          p class="small" caught at #{@ball.created_at.hour}.#{@ball.created_at.min} 
 
 div.row
   div class="col-sm-6 col-sm-offset-3"

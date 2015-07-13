@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150708132100) do
+ActiveRecord::Schema.define(version: 20150711113126) do
 
   create_table "balls", force: :cascade do |t|
     t.boolean  "catch"
@@ -68,6 +68,8 @@ ActiveRecord::Schema.define(version: 20150708132100) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "minutes"
+    t.boolean  "connect"
+    t.text     "name"
   end
 
 end

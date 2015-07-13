@@ -14,21 +14,25 @@ class ConnectController < ApplicationController
 
   def connect
   	@ip = request.ip
-  	arpreturn = %x[arp -a #{@ip}]
-    if arpreturn
-  		@mac = arpreturn.match('..:..:..:..:..:..')
-  		@connect = %x[sudo iptables -I internet 1 -t mangle -m mac --mac-source #{@mac} -j RETURN ] 
-       #@connect = %x[echo 'boom'] 
-  		if @connect 
+    arpreturn = %x[arp -a #{@ip}]
+   if arpreturn
+      @mac = arpreturn.match('..:..:..:..:..:..')
+      if current_user.minutes > 0
+        if current_user.connect == true
+          #establish permanent connection
+          @connect = %x[sudo iptables -I internet 1 -t mangle -m mac --mac-source #{@mac} -j RETURN ] 
+          redirect_to '/connected'
+        else 
+          #establish timed connection
+          @connect = %x[sudo iptables -I internet 1 -t mangle -m mac --mac-source #{@mac} -j RETURN ] 
+          @timeout = %x[sudo iptables -D internet -t mangle -m mac --mac-source #{@mac} -j RETURN | at now + #{current_user.minutes} mins]
+          redirect_to '/connected'
+        end
+      else 
         redirect_to '/'
-      else
-        redirect_to '/info'
       end
-    else
-      redirect_to '/no-thanks'
-
-  	end  	
-
+  	
+    end
   end
 
   def show

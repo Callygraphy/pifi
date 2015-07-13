@@ -18,8 +18,8 @@ class StreamController < ApplicationController
     #   end
     # end
 
-     @combined = (dreams + names + balls + ratings + tweets).sort_by{ |hash| hash['updated_at'] }.reverse
-    # @combined = (names + dreams + balls + tweets).sort_by{ |hash| hash['updated_at'] }.reverse
+     # @combined2 = (dreams + names + balls + ratings + tweets).sort{ |a,b| a.updated_at <=> b.updated_at}.reverse
+     @combined = (names + dreams + balls + tweets + ratings).sort_by{ |hash| hash['updated_at'] }.reverse
 
   end
 

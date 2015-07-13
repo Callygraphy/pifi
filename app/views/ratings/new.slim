@@ -5,30 +5,38 @@ div.row
     h3 class="pull-right" style="padding-top: 11px" <span style="font-size: 30px;">&infin;</span> mins
     div class="col-xs-12 box"
       h3 HOW MUCH WERE THESE WORTH?
-      
-      = form_for :rating, url: ratings_path do |f|
-        div.row style="margin: 20px 0 0 0;"
-          h3 class="pull-left" THE WALL &nbsp;
-          = f.number_field :bird, :class => 'rating form-control input-number pull-left', :max => '100000000000', :min => '0', :value => '5'
-          p class="pull-left" &nbsp; MINS
+      div.row
+        = form_for :rating, url: ratings_path do |f|
+          div.col-xs-12 style="margin-top: 10px;"
+            div class="col-xs-6 "
+              h3 class="" THE WALL &nbsp;
+            div class="col-xs-6 "
+              p style="float:right" &nbsp; MINS
+              = f.number_field :bird, :class => 'rating form-control input-number pull-right', :max => '100000000000', :min => '0', :value => '5'
 
-        div.row style="margin: 20px 0 0 0;"
-          h3 class="pull-left" THE DREAM &nbsp;
-          = f.number_field :dream, :class => 'rating form-control input-number pull-left', :max => '100000000000', :min => '0', :value => '5'
-          p class="pull-left" &nbsp; MINS
+          div.col-xs-12 style="margin-top: 10px;"
+            div class="col-xs-6"
+              h3 class="" THE DREAM &nbsp;
+            div class="col-xs-6 "
+              p style="float:right" &nbsp; MINS
+              = f.number_field :dream, :class => 'rating form-control input-number pull-right', :max => '100000000000', :min => '0', :value => '5'
 
-        div.row style="margin: 20px 0 0 0;"
-          h3 class="pull-left" THE DROP &nbsp;
-          = f.number_field :ball, :class => 'rating form-control input-number pull-left', :max => '100000000000', :min => '0', :value => '5'
-          p class="pull-left" &nbsp; MINS
+          div.col-xs-12 style="margin-top: 10px;"
+            div class="col-xs-6 "
+              h3 class="" THE DROP &nbsp;
+            div class="col-xs-6"
+              p style="float:right" &nbsp; MINS
+              = f.number_field :ball, :class => 'rating form-control input-number pull-right', :max => '100000000000', :min => '0', :value => '10'
 
-        div.row style="margin: 20px 0 0 0;"
-          h3 class="pull-left" THE BIRD &nbsp;
-          = f.number_field :tweet, :class => 'rating form-control input-number pull-left', :max => '100000000000', :min => '0', :value => '5'
-          p class="pull-left" &nbsp; MINS
-        
-        br /
-        = f.submit 'SUBMIT'
+          div.col-xs-12 style="margin-top: 10px;"
+            div class="col-xs-6 "
+              h3 class="" THE BIRD &nbsp;
+            div class="col-xs-6 "              
+              p style="float:right" &nbsp; MINS
+              = f.number_field :tweet, :class => 'rating form-control input-number pull-right', :max => '100000000000', :min => '0', :value => '10'
+          
+          div.col-sm-12 style="margin-top: 20px;"
+            = f.submit 'SUBMIT'
 
 
 div.row

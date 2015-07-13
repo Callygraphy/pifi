@@ -1,25 +1,33 @@
 div class="col-sm-6 col-sm-offset-3"
-  / h1 stream
-  / div class="col-xs-12 box"
-    / - @tweets_stats.each do |t|
-    /   p #{t.inspect}
-    /
-
+  h1 stream
   div class="col-xs-12 box"
     - @combined.each do |stream|
       div class="col-xs-12" style="padding-bottom: 20px;"
         -if stream[:bird]
           div.ratings
             - bird_diff =  stream[:bird] - 20
+            - if bird_diff > 0
+              - bird_diff = "+" + bird_diff.to_s
+            
             - dream_diff =  stream[:dream] - 10
+            - if dream_diff > 0
+              - dream_diff = "+" + dream_diff.to_s
+
             - ball_diff = stream[:ball] - 5
+            -if ball_diff > 0
+              - ball_diff = "+" + ball_diff.to_s
+
             - tweet_diff = stream[:tweet] - 10
+            - if tweet_diff > 0
+              -  tweet_diff = "+" + tweet_diff.to_s
+
             h2 STOCK WAS TAKEN
-            p class="small" rated by #{stream[:user_id]} at #{stream[:created_at].hour}.#{stream[:created_at].min}
-            p THE WALL <span class="pull-right">#{stream[:bird]}mins <span class="var">+#{bird_diff}</span></span>
-            p THE DREAM <span class="pull-right">#{stream[:dream]}mins <span class="var">+#{dream_diff}</span></span>
-            p THE BALL <span class="pull-right">#{stream[:ball]}mins <span class="var">+#{ball_diff}</span></span>
-            p THE BIRD <span class="pull-right">#{stream[:tweet]}mins <span class="var">+#{tweet_diff}</span></span>
+            - unless stream.user.nil?
+              p class="small" rated by #{stream.user.name} at #{stream[:created_at].hour}.#{stream[:created_at].min}
+            p THE WALL <span class="pull-right">#{stream[:bird]}mins <span class="var">#{bird_diff}</span></span>
+            p THE DREAM <span class="pull-right">#{stream[:dream]}mins <span class="var">#{dream_diff}</span></span>
+            p THE BALL <span class="pull-right">#{stream[:ball]}mins <span class="var">#{ball_diff}</span></span>
+            p THE BIRD <span class="pull-right">#{stream[:tweet]}mins <span class="var">#{tweet_diff}</span></span>
 
         -if stream[:name]
           div class="names"
@@ -29,7 +37,8 @@ div class="col-sm-6 col-sm-offset-3"
               p A NAME WAS GIVEN
               h1 #{stream[:name]}
               hr
-              p.small created at #{stream[:created_at].hour}.#{stream[:created_at].min} by #{stream[:user_id]}
+              - unless stream.user.nil?
+                p.small created at #{stream[:created_at].hour}.#{stream[:created_at].min} by #{stream.user.name}
             div class="col-xs-2 "
               img src="/images/name-right.png" align="right"
 
@@ -41,7 +50,8 @@ div class="col-sm-6 col-sm-offset-3"
             div class="col-xs-8 "
               p A DREAM WAS RECORDED
               p#dream_text class="text" #{stream[:text]}
-              p class="small" created at #{stream[:created_at].hour}.#{stream[:created_at].min} by #{stream[:user_id]}
+              - unless stream.user.nil?
+                p class="small" recorded at #{stream[:created_at].hour}.#{stream[:created_at].min} by #{stream.user.name}
 
             div class="col-xs-2 "
               img src="/images/dream-right.png" align="right"
@@ -49,18 +59,22 @@ div class="col-sm-6 col-sm-offset-3"
         -if stream[:tweet] && !stream[:ball]
           div class="col-xs-12 box tweets"
             h2 style="margin:15px 0;" "#{stream[:text]}"
-            h2 class="small pull-right" this was tweeted to 100 followers by #{stream[:user_id]} at #{stream[:created_at].hour}.#{stream[:created_at].min}
+            - unless stream.user.nil?
+              h2 class="small pull-right" this was tweeted to 100 followers by #{stream.user.name} at #{stream[:created_at].hour}.#{stream[:created_at].min}
 
         -if stream[:catch] == false
           div class="balls dropped"
             h2 The ball was dropped
             p breaking a total run of <span class="var">#{stream[:count]}</span>
-            p class="small" created at #{stream[:created_at].hour}.#{stream[:created_at].min} by #{stream[:user_id]}
+            - unless stream.user.nil?
+              p class="small" dropped by #{stream.user.name} at #{stream[:created_at].hour}.#{stream[:created_at].min} 
 
         -if stream[:catch]
           div class="balls dropped"
             h2 The ball was caught
             p making a total run of <span class="var">#{stream[:count]}</span>
-            p class="small" created at #{stream[:created_at].hour}.#{stream[:created_at].min} by #{stream[:user_id]}
+            - unless stream.user.nil?
+              p class="small" caught by #{stream.user.name} at #{stream[:created_at].hour}.#{stream[:created_at].min} 
+
 
         hr

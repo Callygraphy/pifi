@@ -11,7 +11,15 @@ class NamesController < ApplicationController
     @user_mins = User.find(current_user.id)
     @user_mins.minutes += 20
     @user_mins.save
-    redirect_to '/'
+    redirect_to
+  end
+
+  def show
+    @name = Name.find(params[:id])
+  end
+
+  def index
+    @name = Name.where(user_id: current_user.id).last
   end
 
   private

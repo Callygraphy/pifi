@@ -27,11 +27,15 @@ class BallsController < ApplicationController
     @user_mins = User.find(current_user.id)
     @user_mins.minutes += 5
     @user_mins.save
-    redirect_to '/'
+    redirect_to '/balls/'
   end
 
   def index
-    # @dreams = Dream.all
+    @ball = Ball.where(user_id: current_user.id).last 
+  end
+
+  def show
+    @ball = Ball.find(params[:id])
   end
 
   private

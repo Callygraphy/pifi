@@ -1,10 +1,76 @@
 div.row
   div class="col-sm-6 col-sm-offset-3"
-  	p connect to the internet for <span class="var">#{current_user.minutes}</span> minutes
+	-if current_user.connect
+        p YOU HAVE EARNED <span class="var"> &infin;</span> MINUTES CONNECTED TO THE INTERNET
+    -else
+        p YOU HAVE EARNED <span class="var"> #{current_user.minutes}</span> MINUTES CONNECTED TO THE INTERNET
+  
+	h3 
+ 		a href="/connect/connect" connect to the internet>>
 
 
-	div
- 		h3 
- 	 		a href="/connect/connect" connect>>
+div.row
+  div class="col-sm-6 col-sm-offset-3"
+	div class="col-xs-12 box" style="padding-bottom: 30px;"
+	  	div class="col-xs-12" style="padding-bottom: 20px;"
+		  	h1 Payments you made
 
+	  	-if @name.name
+	  		div class="col-xs-12" style="padding-bottom: 20px;"
+		        div class="names"
+		          div class="col-xs-2 "
+		            img src="/images/name-left.png"
+		          div class="col-xs-8 "
+		            p YOU GAVE THE NAME
+		            h1 #{@name.name}
+		            hr
+		            p.small given at #{@name.created_at.hour}.#{@name.created_at.min}
+		          div class="col-xs-2 "
+		            img.right src="/images/name-right.png" align="right"
 
+	    -if @ball.catch == false
+		      div class="col-xs-12 box dropped" style="padding-bottom: 20px;"
+		        div class="balls dropped"
+		          h2 You dropped the ball
+		          p breaking a total run of <span class="var">#{@ball.count}</span>
+		          p class="small" dropped at #{@ball.created_at.hour}.#{@ball.created_at.min} 
+
+	    -if @ball.catch == true
+	        div class="col-xs-12" style="padding-bottom: 20px;"
+		        div class="balls"
+		          h2 You caught the ball
+		          p making a total run of <span class="var">#{@ball.count}</span>
+		          p class="small" caught at #{@ball.created_at.hour}.#{@ball.created_at.min} 
+	    
+		div class="col-xs-12" style="padding-bottom: 30px;"
+			div class="col-xs-12 tweet box"
+	            h2 style="margin:15px 0;" "#{@tweet.text}"
+	            - unless @tweet.user.nil?
+	              h2 class="small pull-right" tweeted to 100 followers by you at #{@tweet.created_at.hour}.#{@tweet.created_at.min}
+
+        div class="col-xs-12" style="padding-bottom: 20px;"
+
+		    div class="dreams"
+		        div class="col-xs-2 "
+		            img src="/images/dream-left.png"
+
+		        div class="col-xs-8"
+		          p YOU RECORDED A DREAM
+		          p#dream_text class="text" #{@dream.text}
+		          - unless @dream.user.nil?
+		            p class="small" recorded at #{@dream.created_at.hour}.#{@dream.created_at.min}
+
+		        div class="col-xs-2 "
+	         	img src="/images/dream-right.png" align="right"
+		
+
+		div class="col-xs-12" style="padding-bottom: 20px;"
+			div class="ratings box"
+				h2 STOCK WAS TAKEN
+				- unless @rating.user.nil?
+				p class="small" rated by you at #{@rating.created_at.hour}.#{@rating.created_at.min}
+				p THE WALL <span class="pull-right">#{@rating.bird}mins <span class="var">#{@bird_diff}</span></span>
+				p THE DREAM <span class="pull-right">#{@rating.dream}mins <span class="var">#{@dream_diff}</span></span>
+				p THE BALL <span class="pull-right">#{@rating.ball}mins <span class="var">#{@ball_diff}</span></span>
+				p THE BIRD <span class="pull-right">#{@rating.tweet}mins <span class="var">#{@tweet_diff}</span></span>
+          

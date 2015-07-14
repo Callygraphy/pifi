@@ -59,22 +59,75 @@ div.row
 
 
 
-    div class="boxed-text"
-      a href="/names/new"
-        div class="button"
-          h2 THE WALL
-    div class="boxed-text"
-      a href="/balls/new"
-        div class="button"
-          h2 THE DROP
-    div class="boxed-text"
-      a href="/dreams/new"
-        div class="button"
-          h2 THE DREAM
-    div class="boxed-text"
-      a href="/tweets/new"
-        div class="button"
-          h2 THE BIRD
+    -if current_user
+      - if current_user.names.size >= 1
+        div class="boxed-text disabled"
+            a href="/names/new"
+              div class="button"
+                h2 THE WALL
+      - else
+        div class="boxed-text"
+          a href=""
+            div class="button"
+              h2 THE WALL
+    - else
+      div class="boxed-text"
+        a href=""
+          div class="button"
+            h2 THE WALL
+
+
+    -if current_user
+      - if current_user.balls.size >= 1
+        div class="boxed-text disabled"
+            a href="/balls/new"
+              div class="button"
+                h2 THE DROP
+      - else
+        div class="boxed-text "
+          a href=""
+            div class="button"
+              h2 THE DROP
+    - else
+      div class="boxed-text"
+        a href=""
+          div class="button"
+            h2 THE DROP
+
+    -if current_user
+      - if current_user.dreams.size >= 1
+        div class="boxed-text disabled"
+            a href="/dreams/new"
+              div class="button"
+                h2 THE DREAM
+      - else
+        div class="boxed-text "
+          a href=""
+            div class="button"
+              h2 THE DREAM
+    - else
+      div class="boxed-text"
+        a href=""
+          div class="button"
+            h2 THE BIRD
+
+    -if current_user
+      - if current_user.tweets.size >= 1
+        div class="boxed-text disabled"
+            a href="/tweets/new"
+              div class="button"
+                h2 THE BIRD
+      - else
+        div class="boxed-text "
+          a href=""
+            div class="button"
+              h2 THE BIRD
+    - else
+      div class="boxed-text"
+        a href=""
+          div class="button"
+            h2 THE BIRD
+
     -if current_user
       - if current_user.minutes >= 35
         div class="boxed-text-span"

@@ -220,6 +220,8 @@ outline: none;
   cursor: not-allowed;
 }
 
+
+
 .names {
     text-align:center;
     img{
@@ -238,15 +240,20 @@ outline: none;
 
     hr {
       border: #000 solid 2px;
-      margin: 18px 0;
-      width: 120%;
-      left: -8%;
       position: relative;
+      margin: 19px 0;
+      width: 123%;
+      margin-left: -10%;
     }
 
     .col-xs-2 {
       padding: 0;
     }
+
+    .right {
+        margin-top: -1px;
+    }
+    
 
   }
 
@@ -309,7 +316,9 @@ outline: none;
 }
 
 //* Small devices (tablets, 768px and up) */
-@media (min-width: 768px) { .dreams img {height: 150px;} }
+@media (min-width: 768px) { .dreams img {height: 150px;} 
+    .names hr{ }
+}
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) { .dreams img {height: 120px;} }

@@ -18,7 +18,7 @@ class StreamController < ApplicationController
 
      # @combined2 = (dreams + names + balls + ratings + tweets).sort{ |a,b| a.updated_at <=> b.updated_at}.reverse
      @combined = (names + dreams + balls + tweets + ratings).sort_by{ |hash| hash['updated_at'] }.reverse
-
+     render layout: 'stream'
   end
 
   def display
@@ -38,6 +38,12 @@ class StreamController < ApplicationController
 
 
     @combined = ([names] + [dreams] + [balls] + [tweets] + [ratings]).sort{ |a,b| a.updated_at <=> b.updated_at}.reverse
+     render layout: 'stream'
+  end
+
+  def test
+    msg = { :status => "ok", :message => "Success!", :html => "<b>...</b>" }
+    format.json  { render :json => msg }
 
   end
 

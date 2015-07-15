@@ -7,23 +7,26 @@ class ConnectController < ApplicationController
     @tweet = Tweet.where(user_id: current_user.id).last
     @rating = Rating.where(user_id: current_user.id).last
 
+    if @rating 
+      @bird_diff =  @rating.bird - 20
+        if @bird_diff > 0
+          @bird_diff = "+" + @bird_diff.to_s
+        end
+      
+      @dream_diff =  @rating.dream - 10
+        if @dream_diff > 0
+          @dream_diff = "+" + @dream_diff.to_s
+        end
+        @ball_diff = @rating.ball - 5
+        if @ball_diff > 0
+          @ball_diff = "+" + @ball_diff.to_s
+        end
+        @tweet_diff = @rating.tweet - 10
+        if @tweet_diff > 0
+          @tweet_diff = "+" + @tweet_diff.to_s
+        end
+    end
 
-    @bird_diff =  @rating.bird - 20
-      if @bird_diff > 0
-        @bird_diff = "+" + @bird_diff.to_s
-      end
-    @dream_diff =  @rating.dream - 10
-      if @dream_diff > 0
-        @dream_diff = "+" + @dream_diff.to_s
-      end
-      @ball_diff = @rating.ball - 5
-      if @ball_diff > 0
-        @ball_diff = "+" + @ball_diff.to_s
-      end
-      @tweet_diff = @rating.tweet - 10
-      if @tweet_diff > 0
-        @tweet_diff = "+" + @tweet_diff.to_s
-      end
   end
 
 

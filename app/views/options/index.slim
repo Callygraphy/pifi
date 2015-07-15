@@ -28,7 +28,7 @@
       div class="modal-dialog"
         div class="modal-content"
           div class="modal-header"
-            h1 class="modal-title" id="Modal2Label" Just to be sure you understand
+            h2 class="modal-title" id="Modal2Label" Just to be sure you understand
           div class="modal-body"
             h4 YOU WILL INTERACT WITH A NUMBER OF TASKS THAT WILL EARN YOU TIME CONNECTED TO THE INTERNET
             h4 THESE INTERACTIONS WILL GENERATE DATA.
@@ -62,12 +62,12 @@ div.row
     -if current_user
       - if current_user.names.size >= 1
         div class="boxed-text disabled"
-            a href="/names/new"
+            a href=""
               div class="button"
                 h2 THE WALL
       - else
         div class="boxed-text"
-          a href=""
+          a href="/names/new"
             div class="button"
               h2 THE WALL
     - else
@@ -80,12 +80,12 @@ div.row
     -if current_user
       - if current_user.balls.size >= 1
         div class="boxed-text disabled"
-            a href="/balls/new"
+            a href=""
               div class="button"
                 h2 THE DROP
       - else
         div class="boxed-text "
-          a href=""
+          a href="/balls/new"
             div class="button"
               h2 THE DROP
     - else
@@ -97,12 +97,12 @@ div.row
     -if current_user
       - if current_user.dreams.size >= 1
         div class="boxed-text disabled"
-            a href="/dreams/new"
+            a href=""
               div class="button"
                 h2 THE DREAM
       - else
         div class="boxed-text "
-          a href=""
+          a href="/dreams/new"
             div class="button"
               h2 THE DREAM
     - else
@@ -114,12 +114,12 @@ div.row
     -if current_user
       - if current_user.tweets.size >= 1
         div class="boxed-text disabled"
-            a href="/tweets/new"
+            a href=""
               div class="button"
                 h2 THE BIRD
       - else
         div class="boxed-text "
-          a href=""
+          a href="/tweets/new"
             div class="button"
               h2 THE BIRD
     - else

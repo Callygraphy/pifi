@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get 'connect/connect'
   get 'stream/display'
+  get 'stream/test'
+
 
   resources :names
   resources :users

@@ -1,8 +1,11 @@
 div.row
 	div class="col-sm-6 col-sm-offset-3"
-	    h2 PAYMENT METHOD
-	    h1 class="pull-left" THE DREAM
-	    h3 class="pull-right" style="padding-top: 11px" +10mins
+		h3 class="pull-left" SELF
+		h3 class="pull-right" +10 POINTS
+		div.row
+	div class="col-sm-6 col-sm-offset-3"
+		h1 THE NETWORK NEEDS YOUR DREAMS
+
 		div class="col-xs-12 box"
 		    h3 WHAT DID YOU DREAM ABOUT LAST NIGHT?
 
@@ -11,18 +14,12 @@ div.row
 		      p = f.submit 'SUBMIT'
 
 div.row
-  div class="col-sm-6 col-sm-offset-3"
   -if current_user
-    div class="col-sm-6 col-sm-offset-3"
-      p YOU HAVE EARNED <span class="var"> #{current_user.minutes}</span> MINUTES CONNECTED TO THE INTERNET  
-    div class="col-sm-6 col-sm-offset-3"
-      p style="float:left" CURRENT USER <span class="var"> #{current_user.name}</span>&nbsp;
-      = link_to "generate new psuedonym", current_user, method: :put, :html => {:class => 'small pull-left'}
-
+  div class="col-sm-6 col-sm-offset-3"
+    p CURRENT USER <span class="var"> #{current_user.name}</span>
+    p YOU HAVE <span class="var"> #{current_user.minutes}</span> POINTS
 
 div.row
   div class="col-sm-6 col-sm-offset-3"
     p
-      a href="/" < CHOOSE ANOTHER PAYMENT METHOD
-    p
-      a href="/connect" CONNECT TO THE INTERNET >
+      a href="/" < BACK

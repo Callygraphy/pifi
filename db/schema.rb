@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150711113126) do
+ActiveRecord::Schema.define(version: 20160513115807) do
 
   create_table "balls", force: :cascade do |t|
     t.boolean  "catch"
@@ -40,6 +40,15 @@ ActiveRecord::Schema.define(version: 20150711113126) do
   end
 
   add_index "names", ["user_id"], name: "index_names_on_user_id"
+
+  create_table "pictures", force: :cascade do |t|
+    t.string   "avatar"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "pictures", ["user_id"], name: "index_pictures_on_user_id"
 
   create_table "ratings", force: :cascade do |t|
     t.integer  "bird"

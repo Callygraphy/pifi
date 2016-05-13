@@ -1,0 +1,33 @@
+script type="text/paperscript" src="/paper/powerimg.js" canvas="canvas"
+
+div.row
+	div class="col-sm-6 col-sm-offset-3"
+		h3 class="pull-left" POWER
+		h3 class="pull-right" +10 POINTS
+		div.row
+	div class="col-sm-6 col-sm-offset-3"
+		h1 SHOW US WHAT POWER LOOKS LIKE
+        div class="col-xs-12 box"
+          h3 UPLOAD AN IMAGE THAT SHOWS POWER
+          form id="form1"
+          input type='file' id="imgInp" accept="image/*" capture="camera"
+
+          canvas id="canvas" style="background-color:#E9E4E4; width: 100%;"
+          = form_for @picture, url: pictures_path, :html => {:multipart => true} do |f|
+            = f.hidden_field :blob, value: 'data:image/gif;base64,R0lGODlhAQABAJEAAAAAAP////8AAP///yH5BAEAAAMALAAAAAABAAEAAAICVAEAOw=='
+            = f.submit 'Upload'
+
+
+
+
+
+div.row
+  div class="col-sm-6 col-sm-offset-3"
+    -if current_user
+        p YOU HAVE EARNED <span class="var"> #{current_user.minutes}</span> MINUTES CONNECTED TO THE INTERNET
+div.row
+  div class="col-sm-6 col-sm-offset-3"
+    p
+      a href="/" < CHOOSE ANOTHER PAYMENT METHOD
+    p
+      a href="/connect" CONNECT TO THE INTERNET >

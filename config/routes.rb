@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :ratings
   resources :stream
   resources :connect
+  resources :pictures
 
   # resources :comments
 

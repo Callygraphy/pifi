@@ -85,7 +85,7 @@ h1, h2, h3, h4, h5, p, input[type=submit], button {
   font-weight: normal;
   font-style: normal;
   letter-spacing: 1px;
-  margin-top: 0px;
+  margin-top: 5px;
   margin-bottom:0px;
 }
 
@@ -98,6 +98,7 @@ p {font-size: 20px;}
 
 input[type=submit], input[type=text], input[type=number], .custom-button {
   font-size: 18px;
+  margin-top: 0px;
 }
 
 
@@ -113,10 +114,11 @@ input[type=submit], input[type=text], input[type=number], .custom-button {
         resize: none;
         padding: 5px;
         word-break: break-all;
+        margin-top: 10px;
       }
 
 .boxed-text {
-  @extend .col-xs-6;
+  @extend .col-xs-4;
   padding-left:2px;
   padding-right:2px;
 
@@ -131,7 +133,7 @@ input[type=submit], input[type=text], input[type=number], .custom-button {
 }
 
 .boxed-text-span {
-  @extend .col-xs-12;
+  @extend .col-xs-10;
   padding-left:2px;
   padding-right:2px;
 
@@ -152,7 +154,7 @@ input[type=submit], .custom-button {
   color: #fff;
   margin-top: 5px;
   margin-right: 5px;
-  padding-top: 5px;
+  padding-top: 1px;
   float: left;
 }
 
@@ -183,6 +185,8 @@ input[type=number]{
   margin-top: 5px;
 }
 
+
+
 .rating {
   background: #fff;
   border:none;
@@ -194,7 +198,7 @@ input[type=number]{
 }
 
 .row  {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 input:focus, textarea:focus {
@@ -257,7 +261,7 @@ outline: none;
     .right {
         margin-top: -1px;
     }
-    
+
 
   }
 
@@ -273,7 +277,7 @@ outline: none;
      }
 
      img{
-       height: 120px;
+       height: 146px;
      }
 
      .small {
@@ -307,6 +311,15 @@ outline: none;
 
 }
 
+.eye {
+  width: 100%;
+  max-width: 170px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
 .dropped {
   border-color: #fff;
   background: $gray-dark;
@@ -319,8 +332,19 @@ outline: none;
 
 }
 
+canvas {
+  height: 100%;
+  width: 100%;
+}
+
+.powerpic{
+  width: 100%;
+
+
+}
+
 //* Small devices (tablets, 768px and up) */
-@media (min-width: 768px) { .dreams img {height: 150px;} 
+@media (min-width: 768px) { .dreams img {height: 150px;}
     .names hr{ }
 }
 

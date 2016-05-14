@@ -10,8 +10,6 @@
           h4 THE DATA IS IN THE PUBLIC DOMAIN AND IS NOT COVERED BY DATA PROTECTION LEGISLATION.
           h4 YOU WILL BE GIVEN A RANDOMLY GENERATED PSUEDONYM BUT IT MAY BE POSSIBLE TO IDENTIFY YOU FROM THE DATA.
           h4 YOU NEED TO BE 18 OR OVER TO PARTICIPATE IN MVNU.
-          h4
-            a href="/info" MORE INFORMATION >
 
           h4 IF YOU UNDERSTAND AND ACCEPT THESE CONDITIONS PRESS ACCEPT
 
@@ -19,7 +17,7 @@
         div class="modal-footer"
           button type="button" class="custom-button" data-dismiss="modal" ACCEPT
           div
-            a href="/thanks"
+            a href="/no-thanks"
               button type="button" class="custom-button" NO THANKS
 
   div class="modal" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="Modal2Label" aria-hidden="true"
@@ -31,8 +29,6 @@
             h4 YOU WILL GENERATE DATA. THE DATA IS PUBLIC.
             h4 IT WILL BE VISIBLE TO PEOPLE HERE AND IN OTHER CONTEXTS
             h4 PLEASE ACT ACCORDINGLY.
-            h4
-              a href="/info" MORE INFORMATION >
 
             h4 IF YOU UNDERSTAND AND ACCEPT THESE CONDITIONS PRESS ACCEPT
 
@@ -41,7 +37,7 @@
             = form_for :user, url: users_path, :html => {:id => 'users_new'}  do |f|
               = f.submit 'ACCEPT', :class => 'user-new'
             div
-              a href="/thanks"
+              a href="/no-thanks"
                 button type="button" class="custom-button" NO THANKS
 
 div.row
@@ -52,7 +48,7 @@ div.row
 
 div.row
   div class="col-xs-6 col-xs-offset-3"
-    a href=""
+    a href="/stream"
       img class="eye" src="/images/eye.png"
 
   div class="boxed-text col-xs-4 col-xs-offset-4"
@@ -62,7 +58,7 @@ div.row
 
 
   div class="boxed-text col-xs-6 col-xs-offset-3"
-      a href=""
+      a href="/balls/new"
         div class="button"
           h2 FRIENDSHIP
 
@@ -73,7 +69,7 @@ div.row
 
 
   div class="boxed-text-span col-xs-10 col-xs-offset-1"
-    a href="/pictures/new"
+    a href="/pictures/new" data-no-turbolink="true"
       div class="button"
         h2 POWER
 
@@ -91,7 +87,13 @@ div.row
       p class="pull-left" CURRENT USER <span class="var"> #{current_user.name}</span> &nbsp;
       p
         = link_to "generate new psuedonym", current_user, method: :put, :class => 'small'
-      p class="" YOU HAVE <span class="var"> #{current_user.minutes}</span> POINTS <a href="/" class="small">about</a>
+      p class="" YOU HAVE <span class="var"> #{current_user.minutes}</span> POINTS <a href="/connect" class="small">about points</a>
+
+    div class="col-xs-12"
+      p
+        a href="/about" ABOUT MVNU
 
   -else
     div class="col-sm-6 col-sm-offset-3"
+    p
+      a href="/info" ABOUT MVNU

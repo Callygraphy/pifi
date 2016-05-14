@@ -6,7 +6,7 @@ div.row
 		h3 class="pull-right" +10 POINTS
 		div.row
 	div class="col-sm-6 col-sm-offset-3"
-		h1 SHOW US WHAT POWER LOOKS LIKE
+		h1 THE NETWORK NEEDS YOUR EYES
         div class="col-xs-12 box"
           h3 UPLOAD AN IMAGE THAT SHOWS POWER
           form id="form1"
@@ -22,12 +22,12 @@ div.row
 
 
 div.row
+  -if current_user
   div class="col-sm-6 col-sm-offset-3"
-    -if current_user
-        p YOU HAVE EARNED <span class="var"> #{current_user.minutes}</span> MINUTES CONNECTED TO THE INTERNET
+    p CURRENT USER <span class="var"> #{current_user.name}</span>
+    p YOU HAVE <span class="var"> #{current_user.minutes}</span> POINTS
+
 div.row
   div class="col-sm-6 col-sm-offset-3"
     p
-      a href="/" < CHOOSE ANOTHER PAYMENT METHOD
-    p
-      a href="/connect" CONNECT TO THE INTERNET >
+      a href="/" < BACK

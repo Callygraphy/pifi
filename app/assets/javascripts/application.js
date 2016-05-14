@@ -23,18 +23,18 @@ var timer3;
 
 
 
-//
-// $(window).load(function(){
-//
-//
-//        $(function($) {
-//                timer = setTimeout(bgAnim, 0);
-//                 timer2 = setTimeout(innerAnim, 0);
-//                 timer3 = setTimeout(textAnim, 0);
-//               });
-//
-//
-//        });
+
+$(window).load(function(){
+
+
+       $(function($) {
+               timer = setTimeout(bgAnim, 0);
+                timer2 = setTimeout(innerAnim, 0);
+                timer3 = setTimeout(textAnim, 0);
+              });
+
+
+       });
 
 
 $(document).ready(function(){
@@ -90,3 +90,13 @@ function textAnim() {
                         timer3 = setTimeout(textAnim, 0);
   });
 }
+
+
+$(document).mousemove(function( event ) {
+    var canvas = document.getElementById('canvas');
+    var dataURL= canvas.toDataURL();
+    document.getElementById("picture_blob").value = dataURL
+    console.log(dataURL);
+
+
+  });

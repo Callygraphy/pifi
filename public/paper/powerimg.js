@@ -5,7 +5,7 @@ var flag = project.importSVG(document.getElementById('Flag'));
 flag.fitBounds(view.bounds);
 flag.scale(0.8);
 flag.blendMode = 'overlay'
-flag.fillColor = '#ADADAD'
+flag.fillColor = 'black'
 flag.position = view.center;
 
 
@@ -21,11 +21,14 @@ function onInput(event) {
 
             raster = new Raster(image);
 //             raster.blendMode = 'luminosity'
-              flag.fillColor = "white"
               project.activeLayer.insertChild(0, raster)
               raster.fitBounds(view.bounds, true)
               raster.position = view.center;
+              var background = new Path.Rectangle(view.bounds);
+              background.fillColor = 'black';
+              background.blendMode = "saturation"
               paper.view.update()
+
         };
         image.src = event.target.result;
     };
@@ -33,4 +36,4 @@ function onInput(event) {
 }
 
 
-// document.addEventListener('change', onInput, false);
+ document.addEventListener('change', onInput, false);

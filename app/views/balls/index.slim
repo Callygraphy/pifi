@@ -5,27 +5,24 @@ div.row
         div class="balls dropped"
           h2 You dropped the ball
           p breaking a total run of <span class="var">#{@ball.count}</span>
-          p class="small" dropped at #{@ball.created_at.hour}.#{@ball.created_at.min} 
+          p class="small" dropped at #{@ball.created_at.hour}.#{@ball.created_at.min}
 
     -if @ball.catch == true
       div class="col-xs-12 box"
         div class="balls"
           h2 You caught the ball
           p making a total run of <span class="var">#{@ball.count}</span>
-          p class="small" caught at #{@ball.created_at.hour}.#{@ball.created_at.min} 
+          p class="small" caught at #{@ball.created_at.hour}.#{@ball.created_at.min}
 
 div.row
   div class="col-sm-6 col-sm-offset-3"
+    p
+      a href="/balls/new" < PLAY AGAIN
+    p
+      a href="/" > MOVE ON
+
+div.row
   -if current_user
-    div class="col-sm-6 col-sm-offset-3"
-      p YOU HAVE EARNED <span class="var"> #{current_user.minutes}</span> MINUTES CONNECTED TO THE INTERNET  
-    div class="col-sm-6 col-sm-offset-3"
-      p style="float:left" CURRENT USER <span class="var"> #{current_user.name}</span>&nbsp;
-      = link_to "generate new psuedonym", current_user, method: :put, :html => {:class => 'small pull-left'}
-
-div.row
   div class="col-sm-6 col-sm-offset-3"
-    p
-      a href="/" < CHOOSE ANOTHER PAYMENT METHOD
-    p
-      a href="/connect" CONNECT TO THE INTERNET >
+    p CURRENT USER <span class="var"> #{current_user.name}</span>
+    p YOU HAVE <span class="var"> #{current_user.minutes}</span> POINTS

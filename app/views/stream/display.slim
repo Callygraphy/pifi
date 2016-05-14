@@ -1,11 +1,11 @@
 div class="col-sm-6 col-sm-offset-3"
-  h1 FreeAsInWifi
-  br 
+  h1 MINIMUM VIABLE UTOPIA
+  br
   h3 <span class="var">#{@user_count}</span> people have earnt <span class="var">#{@total_minutes}</span> minutes connected to the internet
-  br / 
+  br /
   div class="col-xs-12 box"
     div class="col-xs-12" style="padding-bottom: 20px;"
-           
+
       h1 LATEST PAYMENTS
 
     - @combined.each do |stream|
@@ -15,7 +15,7 @@ div class="col-sm-6 col-sm-offset-3"
             - bird_diff =  stream[:bird] - 20
             - if bird_diff > 0
               - bird_diff = "+" + bird_diff.to_s
-            
+
             - dream_diff =  stream[:dream] - 10
             - if dream_diff > 0
               - dream_diff = "+" + dream_diff.to_s
@@ -74,14 +74,11 @@ div class="col-sm-6 col-sm-offset-3"
             h2 The ball was dropped
             p breaking a total run of <span class="var">#{stream[:count]}</span>
             - unless stream.user.nil?
-              p class="small" dropped by #{stream.user.name} at #{stream[:created_at].hour}.#{stream[:created_at].min} 
+              p class="small" dropped by #{stream.user.name} at #{stream[:created_at].hour}.#{stream[:created_at].min}
 
         -if stream[:catch]
           div class="balls dropped"
             h2 The ball was caught
             p making a total run of <span class="var">#{stream[:count]}</span>
             - unless stream.user.nil?
-              p class="small" caught by #{stream.user.name} at #{stream[:created_at].hour}.#{stream[:created_at].min} 
-
-
-            
+              p class="small" caught by #{stream.user.name} at #{stream[:created_at].hour}.#{stream[:created_at].min}
